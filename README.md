@@ -2,136 +2,127 @@
 
 ## 📌 Project Overview
 
-This project analyzes Uber ride data to identify **when and where demand peaks**, enabling smarter **fleet allocation**, **pricing strategies**, and **operational efficiency**.
+This project analyzes Uber ride data (~200K records) to uncover **temporal and spatial demand patterns**, enabling **data-driven fleet optimization**, **pricing strategies**, and **operational efficiency improvements**.
 
-Unlike typical EDA projects, this work integrates:
+It combines:
 
-* **Geospatial analysis**
-* **Advanced feature engineering**
-* **Interactive visualization (Power BI + Folium)**
+* **Exploratory Data Analysis (EDA)**
+* **Geospatial Analysis**
+* **Power BI Dashboarding**
+* **Business Decision Modeling**
 
 ---
 
-## 🔥 What Makes This Project Stand Out
+## 🎯 Problem Statement
 
-This project goes beyond basic analysis and demonstrates **industry-relevant skills**:
+Ride-hailing platforms face:
 
-### ✅ Datetime Feature Engineering
+* Demand spikes at specific hours and locations
+* Inefficient fleet allocation
+* Missed revenue opportunities
+
+This project identifies **when and where demand peaks** to improve:
+
+* Driver allocation
+* Revenue generation
+* Customer experience
+
+---
+
+## 🔥 Key Features (What Makes This Project Stand Out)
+
+### ⏱️ Datetime Feature Engineering
 
 * Extracted:
 
   * Hour
   * Day of week
   * Month
-* Enabled deep **temporal demand analysis**
-
-👉 Core skill tested in almost every Data Analyst interview
+* Enabled **time-based demand analysis**
 
 ---
 
 ### 🌍 Haversine Distance Calculation
 
-* Converted GPS coordinates into **real-world distance (km)**
-* Enabled:
+* Converted GPS coordinates into **real-world trip distance (km)**
+* Used for:
 
-  * Trip distance analysis
-  * Fare vs distance validation
-
-👉 Demonstrates ability to work with **geospatial math**
+  * Distance analysis
+  * Fare validation
 
 ---
 
-### 🗺️ Folium Interactive Heatmap
+### 🗺️ Geospatial Analysis (Folium)
 
-* Built an **interactive NYC pickup heatmap**
-* Visualizes real demand clusters
+* Built **interactive NYC pickup heatmap**
+* Identified:
 
-👉 Highly impactful for:
-
-* GitHub portfolio
-* LinkedIn visibility
+  * High-demand zones
+  * Ride clustering patterns
 
 ---
 
-### 📊 Dual-Axis Visualization
+### 📊 Advanced Visualizations
 
-* Combined:
-
-  * Ride count (bars)
-  * Average fare (line)
-
-👉 Shows ability to present **multi-metric insights clearly**
+* Hour × Day heatmap (peak demand detection)
+* Dual-axis chart (ride count + avg fare)
+* Power BI dashboard with KPIs
 
 ---
 
-## 🎯 Problem Statement
+### ⚙️ Power BI Data Modeling (Advanced)
 
-Ride-hailing platforms struggle with:
+* Implemented **custom categorical sorting**:
 
-* Demand spikes at specific hours
-* Poor fleet distribution
-* Revenue inefficiencies
+  * `day_of_week → Day_Order`
+  * `time_period → period_num`
 
-This project identifies **peak demand windows & hotspots** to optimize operations.
+* Resolved **circular dependency issue**:
+
+  * Avoided column inter-dependency
+  * Used base columns (hour) for safe calculations
+
+👉 Demonstrates strong understanding of **data modeling & BI tools**
 
 ---
 
 ## 📊 Dataset
 
-* ~200K+ Uber rides
+* ~200,000 Uber rides
 * Features:
 
   * Pickup & dropoff coordinates
-  * Timestamp
   * Fare amount
   * Passenger count
+  * Timestamp
 
 ---
 
 ## ⚙️ Tech Stack
 
-* Python (Pandas, NumPy)
-* Matplotlib, Seaborn
-* Folium (Geospatial Visualization)
-* Power BI (Dashboarding)
-
----
-
-## 🔍 Exploratory Data Analysis
-
-### Key Steps:
-
-* Cleaned invalid data:
-
-  * Negative fares
-  * Zero passengers
-* Created time-based features
-* Derived trip distance using Haversine formula
-* Analyzed:
-
-  * Hourly demand
-  * Weekly patterns
-  * Revenue trends
+* **Python**: Pandas, NumPy
+* **Visualization**: Matplotlib, Seaborn
+* **Geospatial**: Folium
+* **BI Tool**: Power BI
 
 ---
 
 ## 📸 Key Visualizations
 
-### 🔥 1. Hour × Day Heatmap (Fleet Deployment Insight)
+### 🔥 1. Hour × Day Heatmap
 
 ![Heatmap](images/heatmap.png)
 
-👉 Dark regions indicate **high-demand windows**
-👉 Critical for **driver allocation strategy**
+👉 Highlights **peak demand windows**
+👉 Used for fleet deployment planning
 
 ---
 
-### 🌍 2. NYC Pickup Heatmap (Folium)
+### 🌍 2. NYC Pickup Heatmap
 
 ![Geo Heatmap](images/geo_heatmap.png)
 
-👉 Highlights **high-demand zones (Manhattan hotspots)**
-👉 Supports **location-based fleet optimization**
+👉 Shows **high-demand geographic clusters**
 
 ---
 
@@ -154,7 +145,7 @@ This project identifies **peak demand windows & hotspots** to optimize operation
 ### 📅 Weekly Trends
 
 * Highest revenue: **Thursday & Friday**
-* Lowest activity: Monday
+* Lowest: Monday
 
 ---
 
@@ -168,7 +159,7 @@ This project identifies **peak demand windows & hotspots** to optimize operation
 
 ### 🚗 Demand Behavior
 
-* Evening rush dominates ride volume
+* Evening rush drives maximum rides
 * Off-peak still contributes significantly
 * Opportunity to optimize morning demand
 
@@ -176,70 +167,67 @@ This project identifies **peak demand windows & hotspots** to optimize operation
 
 ## 🧠 Business Recommendations
 
-### 🚀 Fleet Optimization
+### 🚀 Fleet Allocation
 
 * Increase drivers during:
 
   * Evening peak
-  * Weekends / end-of-week
+  * End-of-week surge
 
 ---
 
-### 💸 Smart Pricing
+### 💸 Pricing Strategy
 
 * Apply surge pricing:
 
-  * High-demand hours
-  * Thu–Fri peak windows
+  * Peak hours
+  * High-demand days
 
 ---
 
-### 📍 Location Strategy
+### 📍 Location Optimization
 
-* Focus drivers in:
+* Deploy drivers in:
 
-  * Manhattan hotspots
-* Reduce idle time
+  * High-density pickup zones
 
 ---
 
-### 📉 Off-Peak Optimization
+### 📉 Off-Peak Strategy
 
 * Introduce discounts
-* Improve ride frequency
+* Improve utilization
 
 ---
 
-## ⚠️ Performance Note
+## ⚠️ Challenges & Solutions
 
-* Haversine distance computation on ~190K rows takes **1–2 minutes**
-* Avoid restarting kernel during execution
+### ❌ Circular Dependency Issue
 
----
+* Faced error while sorting categorical variables in Power BI
+* Cause:
 
-## 💼 Resume Highlights
+  * Interdependent calculated columns
 
-* Performed **geospatial analysis using Haversine formula**
-* Built **interactive heatmaps (Folium)** for demand visualization
-* Engineered **time-based features** for trend analysis
-* Designed **Power BI dashboard** for business insights
-* Delivered **data-driven fleet optimization strategies**
+### ✅ Solution:
 
----
-
-## 📂 Project Structure
-
-```bash
-├── data/
-├── notebooks/
-├── images/
-│   ├── heatmap.png
-│   ├── geo_heatmap.png
-│   └── dashboard.png
-├── README.md
-```
+* Rebuilt logic using **base columns (hour)**
+* Ensured **one-way dependency**
 
 ---
+
+### ❌ Incorrect Sorting of Categories
+
+* Days and time periods sorted alphabetically
+
+### ✅ Solution:
+
+* Created:
+
+  * `Day_Order`
+  * `period_num`
+* Applied **Sort by Column**
+
 
 ## ⭐ Conclusion
 
@@ -247,8 +235,8 @@ This project demonstrates how combining:
 
 * Data analysis
 * Geospatial intelligence
-* Visualization
+* Business thinking
 
-can drive **real-world operational decisions** in ride-hailing platforms.
+can solve real-world problems in ride-hailing platforms.
 
 ---
